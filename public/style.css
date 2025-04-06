@@ -1,0 +1,53 @@
+:root {
+  --color-bg: #faf9f6;
+  --color-text: #1a1a1a;
+  --color-accent1: #D4AF37;
+  --color-accent2: #6e6658;
+  --colorg-bg-dark: #A9745F;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+}
+
+header, footer {
+  background-color: var(--colorg-bg-dark);
+  padding: 20px;
+  text-align: center;
+}
+
+footer {
+  color: var(--color-text);
+}
+
+header h1 {
+  font-size: 2.5em;
+  margin: 0;
+  color: var(--color-accent1);
+}
+
+.page {
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.textpage {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+a {
+  color: var(--color-accent1);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--color-accent2);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
