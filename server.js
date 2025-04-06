@@ -1,19 +1,20 @@
 import express from 'express';
 import session from 'express-session';
-import mysql from 'mysql2/promise';
 import bcrypt from 'bcrypt';
+import mysql from 'mysql2/promise';
 
 import dbconfig from './dbconfig.json' with { type: 'json' };
-
 const pool = mysql.createPool(dbconfig);
 
 const port = 3000;
 const host = 'localhost';
+
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
+app.set('views', './views');
 
 app.use(session({
   secret: 'this is a super secret',
