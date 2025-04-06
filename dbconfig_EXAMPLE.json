@@ -1,0 +1,9 @@
+{
+  "host": "DB HOST HERE",
+  "user": "USER NAME HERE",
+  "password": "SET CORRECT PASSWORD HERE",
+  "database": "genrel",
+  "waitForConnections": true,
+  "connectionLimit": 10,
+  "queueLimit": 0
+}
