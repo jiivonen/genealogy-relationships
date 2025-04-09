@@ -3,6 +3,8 @@ import session from 'express-session';
 import bcrypt from 'bcrypt';
 import mysql from 'mysql2/promise';
 
+import person from './person.js';
+
 import dbconfig from './dbconfig.json' with { type: 'json' };
 const pool = mysql.createPool(dbconfig);
 
@@ -14,7 +16,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
-app.set('views', './views');
 
 app.use(session({
   secret: 'this is a super secret',
@@ -29,7 +30,6 @@ const requireLogin = (req, res, next) => {
   }
   next();
 };
-
 
 app.get('/', requireLogin, (req, res) => {
   res.render('index');
@@ -65,5 +65,7 @@ app.post('/login', async (req, res) => {
     if (connection) connection.release();
   }
 });
+
+app.use('/person', requireLogin, person);
 
 app.listen(port, host, () => console.log(`Server running at http://${host}:${port}/`));
